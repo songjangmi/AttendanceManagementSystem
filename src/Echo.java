@@ -1,5 +1,3 @@
-
-
 import java.util.Scanner;
 
 public class Echo {
@@ -10,5 +8,8 @@ public class Echo {
 		String line=input.nextLine();
 		System.out.println(line);
 		
+		
+		
 	}
+
 }
