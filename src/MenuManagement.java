@@ -1,11 +1,11 @@
 import java.util.Scanner;
-public class MenuManagement {
 
+public class MenuManagement {
 	public static void main(String[] args) {
-		
-		AttendanceManager attendanceManager=new AttendanceManager();
 		Scanner input=new Scanner(System.in);
-		int num=5;		
+		AttendanceManager attendanceManager=new AttendanceManager(input);
+		
+		int num=-1;		
 		while(num !=5) {
 		System.out.println("1. Add Subjects");
 		System.out.println("2. Delete Subjects");
@@ -44,7 +44,7 @@ public class MenuManagement {
 		String subjectTime=input.nextLine();
 		System.out.print("professor Name:");
 		String professorName=input.next();
-		System.out.println("professor Phone Number:");
+		System.out.print("professor Phone Number:");
 		String professorPhoneNumber=input.next();
 		System.out.println(professorPhoneNumber);		
 	}
