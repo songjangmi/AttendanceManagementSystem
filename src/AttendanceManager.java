@@ -1,33 +1,51 @@
 import java.util.Scanner;
 
 public class AttendanceManager {
-	public static void addStudent() {
-		Scanner input=new Scanner(System.in);
+	Attendance attendance;
+	Scanner input;
+	AttendanceManager(Scanner input){
+		this.input=input;
+	}
+	
+	public void addStudent() {
+		attendance= new Attendance();
 		System.out.print("subject Name:");
-		String subjectName=input.next();
+		attendance.subjectName=input.next();
 		System.out.print("subject day/time):");
-		String subjectName=input.nextLine();
+		attendance.subjectTime=input.next();
 		System.out.print("professor Name:");
-		String professorName=input.next();
-		System.out.println("professor Phone Number:");
-		String professorPhoneNumber=input.nextInt();
-		System.out.println(professorPhoneNumber);		
+		attendance.professorName=input.next();
+		System.out.print("professor Phone Number:");
+		attendance.phone=input.next();
+				
 	}
 	
-	public static void deleteSubjects() {
-		Scanner input=new Scanner(System.in);
+	public void deleteSubjects() {
 		System.out.println("subject Name:");
 		String subjectName=input.next();
+		if(attendance==null) {
+			System.out.println("the subject has not been registered");
+			return;
+		}
+		if(attendance.subjectName==subjectName) {
+			attendance=null;
+			System.out.println("the subject is deeleted");
+		}
 	}
 	
-	public static void editSubjects() {
-		Scanner input=new Scanner(System.in);
+	public void editSubjects() {
 		System.out.println("subject Name:");
 		String subjectName=input.next();
+		if(attendance.subjectName==subjectName) {
+			System.out.println("the subject to be edited is "+ subjectName);
+		}
 	}
 	
-	public static void viewSubjects() {
-		Scanner input=new Scanner(System.in);
+	public void viewSubjects() {
 		System.out.println("subject Name:");
 		String subjectName=input.next();
+		if(attendance.subjectName==subjectName) {
+			attendance.printInfo();
+		}
+}
 }
