@@ -1,0 +1,97 @@
+package attendance;
+
+import java.util.Scanner;
+
+public class PersonalTrainingAttendance extends Attendance {
+
+	private static final String Name = null;
+	protected String mentorName;
+	protected String mentorphone;
+	
+	public PersonalTrainingAttendance(AttendanceKind kind) {
+		super(kind);
+	}
+	
+	public void getUserInput(Scanner input) {
+		System.out.print("subject Name:");
+		String subjectName=input.next();
+		this.setSubjectName(subjectName);
+		
+		System.out.print("subject day/time):");
+		String subjectTime=input.next();
+		this.setSubjectTime(subjectName);
+		
+		char answer='x';
+		while(answer!='y'&& answer!='Y'&& answer!='n'&& answer!='N')
+		{
+		System.out.print("Do you have an email address?(T/N)");
+		answer=input.next().charAt(0);
+		if(answer=='y'|| answer=='Y') {
+			System.out.print("Email address:");
+			String email=input.next();
+			this.setEmail(email);
+			break;
+		}
+		else if(answer=='n'|| answer=='N') {
+			this.setEmail("");
+			break;
+		}
+		else {
+			
+		}
+		}
+		
+		while(answer!='y'&& answer!='Y'&& answer!='n'&& answer!='N')
+		{
+		System.out.print("Do you have a mentor's email address?(T/N)");
+		answer=input.next().charAt(0);
+		if(answer=='y'|| answer=='Y') {
+			System.out.print("Mentor's Email address:");
+			String email=input.next();
+			this.setEmail(email);
+			break;
+		}
+		else if(answer=='n'|| answer=='N') {
+			this.setEmail("");
+			break;
+		}
+		else {
+			
+		}
+		}
+		
+		System.out.print("professor Name:");
+		String professorName=input.next();
+		this.setProfessorName(professorName);
+		
+		System.out.print("professor Phone Number:");
+		String phone=input.next();
+		this.setPhone(phone);
+				
+}
+
+	public void printInfo() {
+		String skind="none";
+		switch(this.kind) {
+		case University:
+			skind="Univ.";
+			break;		
+		case Fitness:
+			skind="fit.";
+			break;			
+		case PersonalTraining:
+			skind="Personal.";
+			break;	
+		default:
+			
+		}
+		System.out.println("kind:" + skind+ "subjectName:" + subjectName + " subjectTime:" + subjectTime + " professorName:" + professorName + " phone:" + phone+ " mentor's Name:" + Name + " mentor's phone:" + phone);
+	}
+
+	
+	
+	private void setEmail(String email) {
+		// TODO Auto-generated method stub
+		
+	}
+}
