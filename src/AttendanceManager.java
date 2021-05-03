@@ -2,7 +2,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import attendance.Attendance;
+import attendance.AttendanceKind;
 import attendance.FitnessAttendance;
+import attendance.PersonalTrainingAttendance;
 
 public class AttendanceManager {
 	ArrayList<Attendance> attendances= new ArrayList<Attendance>();
@@ -17,16 +19,24 @@ public class AttendanceManager {
 		while(kind!=1 && kind !=2) {
 		System.out.print("1 for University");
 		System.out.print("2 for Fitness");
-		System.out.print("Select num for Attendance Kind between 1 and 2:");
+		System.out.print("3 for Personal Training");
+		System.out.print("Select num 1,2, or 3 for Attendance Kind:");
 		kind=input.nextInt();
 		if(kind==1) {
-			attendance= new Attendance();
+			attendance= new Attendance(AttendanceKind.University);
 			attendance.getUserInput(input);
 			attendances.add(attendance);
 			break;
 		}
 		else if (kind==2) {
-			attendance= new FitnessAttendance();
+			attendance= new FitnessAttendance(AttendanceKind.Fitness);
+			attendance.getUserInput(input);
+			attendances.add(attendance);
+			break;
+		}
+		
+		else if (kind==3) {
+			attendance= new PersonalTrainingAttendance(AttendanceKind.PersonalTraining);
 			attendance.getUserInput(input);
 			attendances.add(attendance);
 			break;
