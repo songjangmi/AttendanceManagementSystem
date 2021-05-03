@@ -11,6 +11,10 @@ public class Attendance {
 	
 	public Attendance() {
 	}
+	
+	 public Attendance(AttendanceKind kind) {
+		this.kind=kind;
+	}
 
 	public Attendance(String subjectName, String subjectTime) {
 		this.subjectName = subjectName;
@@ -18,6 +22,14 @@ public class Attendance {
 	}
 
 	public Attendance(String subjectName, String subjectTime, String professorName, String phone) {
+		this.subjectName=subjectName;
+		this.subjectTime=subjectTime;
+		this.professorName=professorName;
+		this.phone=phone;
+	}
+	
+	public Attendance(AttendanceKind kind, String subjectName, String subjectTime, String professorName, String phone) {
+		this.kind=kind;
 		this.subjectName=subjectName;
 		this.subjectTime=subjectTime;
 		this.professorName=professorName;
@@ -66,7 +78,21 @@ public class Attendance {
 
 
 	public void printInfo() {
-		System.out.println("subjectName:" + subjectName + " subjectTime:" + subjectTime + " professorName:" + professorName + " phone:" + phone);
+		String skind="none";
+		switch(this.kind) {
+		case University:
+			skind="Univ.";
+			break;		
+		case Fitness:
+			skind="fit.";
+			break;			
+		case PersonalTraining:
+			skind="Personal.";
+			break;	
+		default:
+			
+		}
+		System.out.println("kind:" + skind+ "subjectName:" + subjectName + " subjectTime:" + subjectTime + " professorName:" + professorName + " phone:" + phone);
 	}
 
 	public void getUserInput(Scanner input) {
