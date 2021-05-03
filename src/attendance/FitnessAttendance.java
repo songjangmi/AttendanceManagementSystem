@@ -4,6 +4,10 @@ import java.util.Scanner;
 
 public class FitnessAttendance extends Attendance {
 
+	public FitnessAttendance(AttendanceKind kind) {
+		super(kind);
+	}
+	
 	public void getUserInput(Scanner input) {
 		System.out.print("subject Name:");
 		String subjectName=input.next();
