@@ -2,7 +2,7 @@ package attendance;
 
 import java.util.Scanner;
 
-public class PersonalTrainingAttendance extends Attendance {
+public class PersonalTrainingAttendance extends Attendance implements AttendanceInput {
 
 	private static final String Name = null;
 	protected String mentorName;
