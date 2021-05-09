@@ -2,7 +2,7 @@ package attendance;
 
 import java.util.Scanner;
 
-public class FitnessAttendance extends Attendance {
+public class FitnessAttendance extends Attendance implements AttendanceInput {
 
 	public FitnessAttendance(AttendanceKind kind) {
 		super(kind);
@@ -45,6 +45,25 @@ public class FitnessAttendance extends Attendance {
 		String phone=input.next();
 		this.setPhone(phone);
 }
+	
+	public void printInfo() {
+		String skind="none";
+		switch(this.kind) {
+		case University:
+			skind="Univ.";
+			break;		
+		case Fitness:
+			skind="fit.";
+			break;			
+		case PersonalTraining:
+			skind="Personal.";
+			break;	
+		default:
+			
+		}
+		System.out.println("kind:" + skind+ "subjectName:" + subjectName + " subjectTime:" + subjectTime + " professorName:" + professorName + " phone:" + phone);
+	}
+
 
 	private void setEmail(String email) {
 		// TODO Auto-generated method stub
