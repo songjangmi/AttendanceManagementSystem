@@ -2,12 +2,14 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import attendance.Attendance;
+import attendance.AttendanceInput;
 import attendance.AttendanceKind;
 import attendance.FitnessAttendance;
 import attendance.PersonalTrainingAttendance;
+import attendance.UniversityAttendance;
 
 public class AttendanceManager {
-	ArrayList<Attendance> attendances= new ArrayList<Attendance>();
+	ArrayList<AttendanceInput> attendances= new ArrayList<AttendanceInput>();
 	Scanner input;
 	AttendanceManager(Scanner input){
 		this.input=input;
@@ -15,7 +17,7 @@ public class AttendanceManager {
 	
 	public void addStudent() {
 		int kind=0;
-		Attendance attendance;
+		AttendanceInput attendanceInput;
 		while(kind!=1 && kind !=2) {
 		System.out.print("1 for University");
 		System.out.print("2 for Fitness");
@@ -23,22 +25,22 @@ public class AttendanceManager {
 		System.out.print("Select num 1,2, or 3 for Attendance Kind:");
 		kind=input.nextInt();
 		if(kind==1) {
-			attendance= new Attendance(AttendanceKind.University);
-			attendance.getUserInput(input);
-			attendances.add(attendance);
+			attendanceInput= new UniversityAttendance(AttendanceKind.University);
+			attendanceInput.getUserInput(input);
+			attendances.add(attendanceInput);
 			break;
 		}
 		else if (kind==2) {
-			attendance= new FitnessAttendance(AttendanceKind.Fitness);
-			attendance.getUserInput(input);
-			attendances.add(attendance);
+			attendanceInput= new FitnessAttendance(AttendanceKind.Fitness);
+			attendanceInput.getUserInput(input);
+			attendances.add(attendanceInput);
 			break;
 		}
 		
 		else if (kind==3) {
-			attendance= new PersonalTrainingAttendance(AttendanceKind.PersonalTraining);
-			attendance.getUserInput(input);
-			attendances.add(attendance);
+			attendanceInput= new PersonalTrainingAttendance(AttendanceKind.PersonalTraining);
+			attendanceInput.getUserInput(input);
+			attendances.add(attendanceInput);
 			break;
 		}
 		
@@ -73,8 +75,8 @@ public class AttendanceManager {
 		System.out.print("subject Name:");
 		String subjectName=input.next();
 		for(int i=0; i<attendances.size(); i++) {
-			Attendance attendance=attendances.get(i);
-			if(attendance.getSubjectName()==subjectName) {
+			AttendanceInput attendanceInput=attendances.get(i);
+			if(attendanceInput.getSubjectName()==subjectName) {
 				int num=-1;		
 				while(num !=5) {
 					System.out.println("**Subject ivfo Edit Menu**");
@@ -88,27 +90,27 @@ public class AttendanceManager {
 					if(num==1) {
 						System.out.print("subject Name:");
 						String SubjectName=input.next();
-						attendance.setSubjectName(subjectName);
+						attendanceInput.setSubjectName(subjectName);
 					}
 			
 					else if(num==2) {
 						System.out.print("subject day/time):");
 						String subjectTime=input.next();
-						attendance.setSubjectTime(subjectTime);
+						attendanceInput.setSubjectTime(subjectTime);
 				
 					}
 			
 					else if(num==3) {
 						System.out.print("professor Name:");
 						String professorName=input.next();
-						attendance.setProfessorName(professorName);
+						attendanceInput.setProfessorName(professorName);
 						
 					}
 			
 					else if(num==4) {
 						System.out.print("professor Phone Number:");
 						String phone=input.next();
-						attendance.setPhone(phone);
+						attendanceInput.setPhone(phone);
 					}
 			
 					else  {
